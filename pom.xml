@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-
 <!--
   Licensed to the Apache Software Foundation (ASF) under one
   or more contributor license agreements.  See the NOTICE file
@@ -18,49 +16,41 @@
   specific language governing permissions and limitations
   under the License.
 -->
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.apache</groupId>
     <artifactId>apache</artifactId>
     <version>30</version>
-    <relativePath />
+    <relativePath/>
   </parent>
-
   <organization>
     <name>Apache MINA Project</name>
     <url>https://mina.apache.org/</url>
   </organization>
-
   <groupId>org.apache.mina</groupId>
-  <version>2.2.3</version>
+  <version>2.2.3-lineaje-01</version>
   <artifactId>mina-parent</artifactId>
   <name>Apache MINA</name>
   <packaging>pom</packaging>
-
   <url>https://mina.apache.org/</url>
   <inceptionYear>2004</inceptionYear>
-
   <issueManagement>
     <system>jira</system>
     <url>https://issues.apache.org/jira/browse/DIRMINA</url>
   </issueManagement>
-
   <scm>
-    <connection>scm:git:https://gitbox.apache.org/repos/asf/mina.git</connection>
-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/mina.git</developerConnection>
-    <url>https://github.com/apache/mina/tree/${project.scm.tag}</url>
-    <tag>2.2.3</tag>
+    <connection>scm:git:mina</connection>
+    <developerConnection>scm:git:mina</developerConnection>
+    <url>mina</url>
+    <tag>2.2.3-lineaje-01</tag>
   </scm>
-
   <distributionManagement>
     <site>
       <id>apache.websites</id>
       <url>scp://people.apache.org/www/mina.apache.org/report/trunk/</url>
     </site>
   </distributionManagement>
-
   <ciManagement>
     <notifiers>
       <notifier>
@@ -69,9 +59,7 @@
       </notifier>
     </notifiers>
   </ciManagement>
-
   <description>Apache MINA is a network application framework which helps users develop high performance and highly scalable network applications easily.  It provides an abstract event-driven asynchronous API over various transports such as TCP/IP and UDP/IP via Java NIO.</description>
-
   <licenses>
     <license>
       <name>Apache 2.0 License</name>
@@ -79,17 +67,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
   <!-- Define the version for each of the used jar and maven plugins -->
   <properties>
-    <arguments />
-
+    <arguments/>
     <!-- activate Reproducible Builds -->
     <project.build.outputTimestamp>1694032799</project.build.outputTimestamp>
-
     <!-- Make Java 8 javadoc lint to shut the f*** up... -->
     <!-- additionalparam>-Xdoclint:none</additionalparam -->
-
     <!-- Maven Plugins -->
     <version.apache.rat.plugin>0.15</version.apache.rat.plugin>
     <version.api.plugin>3.6.3</version.api.plugin>
@@ -136,7 +120,6 @@
     <version.tools.maven.plugin>1.4</version.tools.maven.plugin>
     <version.versions.plugin>2.16.0</version.versions.plugin>
     <version.xbean.plugin>4.23</version.xbean.plugin>
-
     <!-- Jars -->
     <version.easymock>2.5.2</version.easymock>
     <version.jboss.javassist>3.8.0.GA</version.jboss.javassist>
@@ -154,14 +137,11 @@
     <version.springframework>2.5.6.SEC03</version.springframework>
     <version.tomcat.jni>10.0.27</version.tomcat.jni>
     <version.xbean.spring>4.23</version.xbean.spring>
-
     <!-- OSGi minimum versions -->
     <osgi-min-version.slf4j.api>1.7</osgi-min-version.slf4j.api>
-    
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
   </properties>
-
   <modules>
     <module>mina-legal</module>
     <module>mina-core</module>
@@ -176,7 +156,6 @@
     <module>mina-http</module>
     <!--module>mina-benchmarks</module-->
   </modules>
-
   <!-- =========================================== -->
   <!-- The dependencies for all the projects       -->
   <!-- =========================================== -->
@@ -189,71 +168,60 @@
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mina-transport-apr</artifactId>
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mina-filter-compression</artifactId>
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mina-integration-beans</artifactId>
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mina-integration-ognl</artifactId>
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mina-integration-jmx</artifactId>
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <dependency>
         <groupId>${project.groupId}</groupId>
         <artifactId>mina-statemachine</artifactId>
         <version>${project.version}</version>
         <type>bundle</type>
       </dependency>
-
       <!-- Transport -->
       <dependency>
         <groupId>org.apache.tomcat</groupId>
         <artifactId>tomcat-jni</artifactId>
         <version>${version.tomcat.jni}</version>
       </dependency>
-
       <!-- Filter -->
       <dependency>
         <groupId>com.jcraft</groupId>
         <artifactId>jzlib</artifactId>
         <version>${version.jzlib}</version>
       </dependency>
-
       <!-- Integration -->
-
       <dependency>
         <groupId>org.apache.xbean</groupId>
         <artifactId>xbean-spring</artifactId>
         <version>${version.xbean.spring}</version>
       </dependency>
-
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring</artifactId>
@@ -273,64 +241,54 @@
           </exclusion>
         </exclusions>
       </dependency>
-
       <dependency>
         <groupId>ognl</groupId>
         <artifactId>ognl</artifactId>
         <version>${version.ognl}</version>
       </dependency>
-
       <dependency>
         <groupId>jboss</groupId>
         <artifactId>javassist</artifactId>
         <version>${version.jboss.javassist}</version>
       </dependency>
-
       <dependency>
         <groupId>jdom</groupId>
         <artifactId>jdom</artifactId>
         <version>${version.jdom}</version>
         <optional>true</optional>
       </dependency>
-
       <dependency>
         <groupId>jmock</groupId>
         <artifactId>jmock</artifactId>
         <version>${version.jmock}</version>
         <optional>true</optional>
       </dependency>
-
       <dependency>
         <groupId>pmd</groupId>
         <artifactId>pmd</artifactId>
         <version>${version.pmd}</version>
       </dependency>
-
       <!-- Logging -->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${version.slf4j.api}</version>
       </dependency>
-
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
         <version>${version.slf4j.jcl.over.slf4j}</version>
       </dependency>
-
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-reload4j</artifactId>
         <version>${version.slf4j.reload4j}</version>
       </dependency>
-
       <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
         <version>${version.log4j}</version>
       </dependency>
-
       <!-- Testing -->
       <dependency>
         <groupId>junit</groupId>
@@ -338,14 +296,12 @@
         <version>${version.junit}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>org.easymock</groupId>
         <artifactId>easymock</artifactId>
         <version>${version.easymock}</version>
         <scope>test</scope>
       </dependency>
-
       <dependency>
         <groupId>com.agical.rmock</groupId>
         <artifactId>rmock</artifactId>
@@ -354,7 +310,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <!-- ==================================== -->
   <!-- Common dependencies for all projects -->
   <!-- ==================================== -->
@@ -364,21 +319,18 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
     </dependency>
-
     <!-- logging implementation used for unit tests -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-reload4j</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <profiles>
     <profile>
       <id>serial</id>
@@ -391,46 +343,42 @@
         <module>mina-transport-serial</module>
       </modules>
     </profile>
-
-  <profile>
-    <id>apache-release</id>
-    <build>
-      <plugins>
-        <plugin>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <executions>
-            <execution>
-              <phase>install</phase>
-              <goals>
-                <goal>javadoc</goal>
-              </goals>
-              <configuration>
-                <aggregate>true</aggregate>
-                <!-- additionalparam>-Xdoclint:none</additionalparam -->
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </build>
-    <modules>
-      <module>distribution</module>
-    </modules>
-  </profile>
-
-  <!-- use JDK8 compilation for JDK9+ compiler -->
-  <profile>
-    <id>java-8-compilation</id>
-    <activation>
-      <jdk>[9,)</jdk>
-    </activation>
-    <properties>
-      <maven.compiler.release>8</maven.compiler.release>
-    </properties>
-  </profile>
-
+    <profile>
+      <id>apache-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>javadoc</goal>
+                </goals>
+                <configuration>
+                  <aggregate>true</aggregate>
+                  <!-- additionalparam>-Xdoclint:none</additionalparam -->
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <modules>
+        <module>distribution</module>
+      </modules>
+    </profile>
+    <!-- use JDK8 compilation for JDK9+ compiler -->
+    <profile>
+      <id>java-8-compilation</id>
+      <activation>
+        <jdk>[9,)</jdk>
+      </activation>
+      <properties>
+        <maven.compiler.release>8</maven.compiler.release>
+      </properties>
+    </profile>
   </profiles>
-  
   <build>
     <!-- =======================  WARNING ========================== -->
     <!-- Only put pluginManagement info in this pom for plugins      -->
@@ -445,56 +393,47 @@
           <artifactId>maven-assembly-plugin</artifactId>
           <version>${version.assembly.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-changes-plugin</artifactId>
           <version>${version.changes.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${version.checkstyle.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
           <version>${version.clean.plugin}</version>
         </plugin>
-
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${version.compiler.plugin}</version>
           <configuration>
-          <optimize>true</optimize>
+            <optimize>true</optimize>
             <showDeprecation>true</showDeprecation>
             <encoding>ISO-8859-1</encoding>
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
           <version>${version.dependency.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>${version.deploy.plugin}</version>
           <inherited>true</inherited>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-docck-plugin</artifactId>
           <version>${version.docck.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-eclipse-plugin</artifactId>
@@ -505,31 +444,26 @@
             <downloadJavadocs>true</downloadJavadocs>
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${version.enforcer.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>${version.gpg.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
           <version>${version.install.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${version.jar.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
@@ -539,94 +473,82 @@
               <tag>
                 <name>org.apache.xbean.XBean</name>
                 <placement>t</placement>
-                <head />
+                <head/>
               </tag>
               <tag>
                 <name>org.apache.xbean.Property</name>
                 <placement>m</placement>
-                <head />
+                <head/>
               </tag>
               <tag>
                 <name>org.apache.xbean.FactoryMethod</name>
                 <placement>m</placement>
-                <head />
+                <head/>
               </tag>
               <tag>
                 <name>org.apache.xbean.DestroyMethod</name>
                 <placement>m</placement>
-                <head />
+                <head/>
               </tag>
             </tags>
             <!-- additionalparam>-Xdoclint:none</additionalparam -->
-         </configuration>
+          </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jxr-plugin</artifactId>
           <version>${version.jxr.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
           <version>${version.plugin.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
           <version>${version.pmd.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>${version.project.info.report.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${version.release.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-remote-resources-plugin</artifactId>
           <version>${version.remote.resources.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${version.resources.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
           <version>${version.scm.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>${version.site.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>${version.source.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-report-plugin</artifactId>
           <version>${version.surfire.report.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -635,19 +557,16 @@
             <argLine>-Xmx1024m</argLine>
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
           <version>${version.bundle.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.geronimo.genesis.plugins</groupId>
           <artifactId>tools-maven-plugin</artifactId>
           <version>${version.tools.maven.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
@@ -677,37 +596,31 @@
             </execution>
           </executions>
         </plugin>
-
         <plugin>
           <groupId>org.apache.xbean</groupId>
           <artifactId>maven-xbean-plugin</artifactId>
           <version>${version.xbean.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>${version.build.helper.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>clirr-maven-plugin</artifactId>
           <version>${version.clirr.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>cobertura-maven-plugin</artifactId>
           <version>${version.cobertura.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>dashboard-maven-plugin</artifactId>
           <version>${version.dashboard.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
@@ -730,19 +643,16 @@
             -->
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>javancss-maven-plugin</artifactId>
           <version>${version.javancss.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>jdepend-maven-plugin</artifactId>
           <version>${version.jdepend.plugin}</version>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>taglist-maven-plugin</artifactId>
@@ -756,13 +666,11 @@
             </tags>
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>${version.versions.plugin}</version>
         </plugin>
-
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
@@ -774,14 +682,14 @@
                 <pluginExecution>
                   <pluginExecutionFilter>
                     <groupId>org.apache.xbean</groupId>
-                      <artifactId>maven-xbean-plugin</artifactId>
-                      <versionRange>[4.12,)</versionRange>
-                      <goals>
-                        <goal>mapping</goal>
-                      </goals>
-                    </pluginExecutionFilter>
+                    <artifactId>maven-xbean-plugin</artifactId>
+                    <versionRange>[4.12,)</versionRange>
+                    <goals>
+                      <goal>mapping</goal>
+                    </goals>
+                  </pluginExecutionFilter>
                   <action>
-                    <ignore />
+                    <ignore/>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -790,7 +698,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -806,12 +713,11 @@
                 <requireMavenVersion>
                   <version>(3.8,]</version>
                 </requireMavenVersion>
-              </rules>    
+              </rules>
             </configuration>
           </execution>
         </executions>
       </plugin>
-    
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
@@ -821,11 +727,9 @@
           <showDeprecations>true</showDeprecations>
         </configuration>
       </plugin>
-
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
       </plugin>
-
       <plugin>
         <artifactId>maven-source-plugin</artifactId>
         <executions>
@@ -837,7 +741,6 @@
           </execution>
         </executions>
       </plugin>
-
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
@@ -848,7 +751,6 @@
           <tagNameFormat>@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
@@ -861,7 +763,6 @@
           </instructions>
         </configuration>
       </plugin>
-    
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
@@ -872,7 +773,6 @@
             <artifactId>wagon-ssh</artifactId>
             <version>3.5.3</version>
           </dependency>
-
           <!-- Add support for 'scpexe' -->
           <dependency>
             <groupId>org.apache.maven.wagon</groupId>
@@ -881,9 +781,28 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <gpgArguments>
+            <arg>--pinentry-mode</arg>
+            <arg>loopback</arg>
+          </gpgArguments>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
-
   <reporting>
     <plugins>
       <plugin>
@@ -908,7 +827,6 @@
           <locale>en_US</locale>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
@@ -922,7 +840,6 @@
           <docTitle>Apache MINA ${project.version} Cross Reference</docTitle>
         </configuration>
       </plugin>
-
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>rat-maven-plugin</artifactId>
@@ -939,5 +856,10 @@
       </plugin>
     </plugins>
   </reporting>
+  <contributors>
+    <contributor>
+      <name>Lineaje DepFixer</name>
+      <email>221268890+Lineaje-DepFixer@users.noreply.github.com</email>
+    </contributor>
+  </contributors>
 </project>
-
